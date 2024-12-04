@@ -1,0 +1,30 @@
+server:
+  port: 8181
+spring:
+  datasource:
+    url: jdbc:h2:mem:storage
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+management:
+  endpoint:
+    leader-election:
+      enabled: true
+  leader-election:
+    id: leader-task-id
+
+file:
+  save:
+    path: /home/mina/files
+  delete:
+    cycle-time: 4000
