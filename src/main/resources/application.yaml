@@ -1,6 +1,9 @@
 server:
   port: 8181
+
 spring:
+  application:
+    name: leader-election-app
   datasource:
     url: jdbc:h2:mem:storage
     driverClassName: org.h2.Driver
@@ -17,6 +20,10 @@ spring:
       max-request-size: 10MB
 
 management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
   endpoint:
     leader-election:
       enabled: true
