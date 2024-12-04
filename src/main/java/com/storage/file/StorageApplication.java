@@ -1,6 +1,7 @@
 package com.storage.file;
 
 import com.storage.file.service.LeaderElectionService;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,6 +23,12 @@ public class StorageApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		leaderElectionService.startLeaderElection();
+	}
+
+
+	@PostConstruct
+	public void init() {
 		leaderElectionService.startLeaderElection();
 	}
 
